@@ -1,1 +1,1 @@
-# cloud-cspm
+A Cloud Security Posture Management (CSPM) tool for AWS that automatically scans cloud resources, identifies security misconfigurations based on security best practices, assigns a risk score, and provides AI-assisted explanations and remediation recommendations through an interactive dashboard.
