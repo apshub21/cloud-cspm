@@ -1,0 +1,103 @@
+python -m venv venv
+
+venv\Scripts\activate
+------------------------------
+pip install boto3 fastapi uvicorn jinja2 python-multipart sqlalchemy python-dotenv
+boto3 → AWS SDK
+FastAPI → Backend
+Uvicorn → Web server
+Jinja2 → HTML templates
+SQLAlchemy → SQLite ORM
+python-dotenv → Environment variables
+
+pip freeze > requirements.txt
+-----------------------------------------------------------
+
+cloud-cspm/
+│
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── routes.py
+│   └── database.py
+│
+├── scanners/
+│   ├── __init__.py
+│
+├── engine/
+│   ├── __init__.py
+│
+├── templates/
+│
+├── static/
+│
+├── reports/
+│
+├── .env
+│
+├── requirements.txt
+│
+└── README.md
+
+mkdir app scanners engine templates static reports
+
+type nul > app\main.py
+type nul > app\routes.py
+type nul > app\database.py
+type nul > app\__init__.py
+type nul > scanners\__init__.py
+type nul > engine\__init__.py
+type nul > .env
+type nul > README.md
+-------------------------------------------------
+
+AWS CLI Installed
+aws --version
+E:\GU\Sem3\Cloud Security\cloud-cspm>aws --version
+aws-cli/2.35.12 Python/3.14.5 Windows/11 exe/AMD64
+
+
+--------------------------------------------------
+
+Creating IAM user
+cspm-scanner
+No management console access, permission-ReadOnlyAccess
+Create access key
+
+aws configure
+AWS Access Key ID: AKIAQETL6CYJKNBEKTOL
+AWS Secret Access Key: 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
+Default region name: ap-south-1
+Default output format: json
+
+Checking
+aws sts get-caller-identity
+{
+    "UserId": "AIDAQETL6CYJGOLPF2WZ5",
+    "Account": "009890043410",
+    "Arn": "arn:aws:iam::009890043410:user/cspm-scanner"
+}
+
+
+-----------------------------------------
+
+Made test_auth.py
+import boto3
+sts = boto3.client("sts")
+print(sts.get_caller_identity())
+
+-----------------------------------------
+
+
+✅ Python environment set up
+✅ Virtual environment created
+✅ Required packages installed
+✅ Project structure created
+✅ AWS CLI installed
+✅ IAM user created
+✅ Access keys configured
+✅ AWS authentication verified
+
+
+
+
